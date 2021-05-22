@@ -78,6 +78,8 @@ public final class InscriptionForm {
          }
          utilisateur.setDateDeNaissance( datedenaissance );
          
+         utilisateur.setAdmin(false);
+         
          if ( erreurs.isEmpty() ) {
              resultat = "Succès de l'inscription.";
              facade.addUser(utilisateur);

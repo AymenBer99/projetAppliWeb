@@ -34,7 +34,7 @@
           <a class="nav-link" href="appli/vaccination.html">Vaccination</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="/projet/Connexion">${connected}</a>
+          ${connected}
         </li>
       </ul>
     </div>

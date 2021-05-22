@@ -12,6 +12,7 @@ public class Utilisateur {
     private String nom;
     private String prenom;
     private String dateDeNaissance;
+    private Boolean admin;
 
     public void setEmail(String email) {
     this.email = email;
@@ -20,6 +21,13 @@ public class Utilisateur {
     return email;
     }
 
+    public void setAdmin(Boolean a) {
+    this.admin = a;
+    }
+    public Boolean getAdmin() {
+    return this.admin;
+    }
+    
     public void setMotDePasse(String motDePasse) {
     this.motDePasse = motDePasse;
     }

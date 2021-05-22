@@ -29,6 +29,8 @@ public class Connexion extends HttpServlet {
     public static final String ATT_CONNECTED = "connected";
     public static final String VUE = "/appli/signIn.jsp";
     public static final String ACCEUIL = "/index.jsp";
+    
+    public static Boolean adminCreated = false;
 
 	
     /**
@@ -43,8 +45,19 @@ public class Connexion extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		/* Création de l'admin si adminCreated == false*/
+		if (!adminCreated) {
+			Utilisateur utilisateur = new Utilisateur();
+			utilisateur.setAdmin(true);
+			utilisateur.setEmail("admin@admin.com");
+			utilisateur.setMotDePasse("admin");
+			facade.addUser(utilisateur);
+			adminCreated = true;
+		}
+		
         /* Affichage de la page d'inscription */
-        this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );	}
+        this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );	
+    }
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -70,9 +83,9 @@ public class Connexion extends HttpServlet {
         request.setAttribute( ATT_USER, utilisateur );
             	
         if (session.getAttribute(ATT_SESSION_USER) != null) {
-            request.setAttribute( ATT_CONNECTED, "Profile" );
+            request.setAttribute( ATT_CONNECTED, "<a class=\"nav-link\" href=\"/projet/Profile\">Profile</a>" );
         } else {
-            request.setAttribute( ATT_CONNECTED, "Connexion/Inscription" );	
+            request.setAttribute( ATT_CONNECTED, "<a class=\"nav-link\" href=\"/projet/Connexion\">Connexion/Inscription</a>" );	
         }
 		        
         if (form.getErreurs().isEmpty()) {
