@@ -7,11 +7,11 @@ import javax.persistence.Id;
 public class Statistiques {
 
     @Id
+    private String Date;
     private int NouveauCas  ;
     private int nbrDeces;
     private int nbrVaccins;
     private int nbrGuerison;
-    private String Date;
 
     public void setNouveauCas(int cas) {
     this.NouveauCas = cas;

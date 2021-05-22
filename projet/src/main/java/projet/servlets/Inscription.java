@@ -49,7 +49,7 @@ public class Inscription extends HttpServlet {
         /* Récupération de la session depuis la requête */
         HttpSession session = request.getSession();
     	
-        request.setAttribute( ATT_CONNECTED, "Connexion/Inscription" );	
+        request.setAttribute( ATT_CONNECTED, "<a class=\"nav-link\" href=\"/projet/Connexion\">Connexion/Inscription</a>" );	
         
         if (form.getErreurs().isEmpty()) {
             this.getServletContext().getRequestDispatcher( CONNEXION ).forward( request, response );       	

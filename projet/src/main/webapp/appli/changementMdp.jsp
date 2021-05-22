@@ -25,19 +25,19 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="/projet/index.html"> Acceuil<span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="#"> Acceuil<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="stats.html">Statistiques</a>
+          <a class="nav-link" href="appli/stats.html">Statistiques</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="gouvern.html">Mesures Gouvernementales</a>
+          <a class="nav-link" href="appli/gouvern.html">Mesures Gouvernementales</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="vaccination.html">Vaccination</a>
+          <a class="nav-link" href="appli/vaccination.html">Vaccination</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="profil.html">Profil</a>
+          <a class="nav-link" href="appli/signIn.html">Connexion/Inscription</a>
         </li>
       </ul>
     </div>
@@ -47,22 +47,27 @@
 
   <div class="body text-white padding-bottom padding-top">
 
-    <hr class="padding-bottom">
-    <h2 class="center display-3 title">Profil</h2>
-      <div class="Connexion">
-        <div >
-          <img src="images/profil.jpg" class="rounded mx-auto d-block" width="200" height="200" alt="photo de profil" class="images">
-        </div>
-        <form class="center" action="Connexion" method="post">
-          <table class="center padding-bottom margin-bottom">
-            ${profile}
-          </table>
-        </form>
-        <td>        
-        	<form class="center" action="Profile" method="post">
-          		<button class="btn btn-success margin-bottom" type="submit" name="submit" id="submit">Se Déconnecter</button>
-        </form></td>
-      </div>
+    <hr class="padding-bottom" >
+    <div class="Inscription">
+      <h2 class="center display-3 title">Changement de mot de passe</h2>
+      <form class="center" action="changementMdp" method="post">
+        <table class="center padding-bottom margin-bottom ">
+          <tr>
+            <td><p class="text-left ">Ancien Mot de passe</p></td>
+            <td><input  class = "center" id="mdp0" type="password" name="mdp" required placeholder="Mot de passe"></td>
+          </tr>
+          <tr>
+            <td><p class="text-left ">Nouveau Mot de passe</p></td>
+            <td><input  class = "center" id="mdp" type="password" name="mdp" required placeholder="Mot de passe"></td>
+          </tr>
+          <tr>
+            <td><p class="text-left ">Confirmer Mot de passe</p></td>
+            <td><input  class = "center" id="mdp1" type="password" name="mdp1" required placeholder="Mot de passe"></td>
+          </tr>
+        </table>
+        <button class="btn btn-success margin-bottom" type="submit" name="submit" id="recontacter">Changer Mot De Passe</button>
+      </form>
+    </div>
       <hr class="padding-bottom">
   </div>
 

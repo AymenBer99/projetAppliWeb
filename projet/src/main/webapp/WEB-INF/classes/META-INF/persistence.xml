@@ -9,6 +9,10 @@
         <jta-data-source>java:jboss/datasources/ExampleDS</jta-data-source>
         
         <class>projet.beans.Utilisateur</class>
+        <class>projet.beans.RendezvousVaccin</class>
+        <class>projet.beans.Statistiques</class>
+        <class>projet.beans.MesuresGouvernementales</class>
+        
         
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect" />

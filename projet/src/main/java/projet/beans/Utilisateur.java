@@ -24,7 +24,7 @@ public class Utilisateur {
     public void setAdmin(Boolean a) {
     this.admin = a;
     }
-    public Boolean getAdmin() {
+    public Boolean isAdmin() {
     return this.admin;
     }
     

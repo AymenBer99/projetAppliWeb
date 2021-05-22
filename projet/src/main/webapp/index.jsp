@@ -31,7 +31,7 @@
           <a class="nav-link" href="appli/gouvern.html">Mesures Gouvernementales</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="appli/vaccination.html">Vaccination</a>
+          <a class="nav-link" href="Vaccination">Vaccination</a>
         </li>
         <li class="nav-item active">
           ${connected}

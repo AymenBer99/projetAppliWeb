@@ -25,7 +25,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="/projet/index.html"> Acceuil<span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="../index.html"> Acceuil<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
           <a class="nav-link" href="stats.html">Statistiques</a>
@@ -37,7 +37,7 @@
           <a class="nav-link" href="vaccination.html">Vaccination</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="profil.html">Profil</a>
+          ${connected}
         </li>
       </ul>
     </div>
@@ -48,27 +48,40 @@
   <div class="body text-white padding-bottom padding-top">
 
     <hr class="padding-bottom">
-    <h2 class="center display-3 title">Profil</h2>
-      <div class="Connexion">
-        <div >
-          <img src="images/profil.jpg" class="rounded mx-auto d-block" width="200" height="200" alt="photo de profil" class="images">
-        </div>
-        <form class="center" action="Connexion" method="post">
-          <table class="center padding-bottom margin-bottom">
-            ${profile}
-          </table>
-        </form>
-        <td>        
-        	<form class="center" action="Profile" method="post">
-          		<button class="btn btn-success margin-bottom" type="submit" name="submit" id="submit">Se Déconnecter</button>
-        </form></td>
+      <div class="MesuresGouv">
+        <h2 class="center display-3 title">Vaccination</h2>
+        <h3 class="center display-6 subtitle"> DÃ©couvrez les dates de vaccination disponibles.</h3>
       </div>
+      <form class = "center" action = "Vaccination" method= "post">
+      <table class="center padding-bottom margin-bottom ">
+        <tr>
+          <td><p class="text-left ">Date des annonces</p></td>
+          <td><input  class = "center" id="datevaccins" type="date" name="datevaccins" required placeholder="JJ/MM/AAAA"></td>
+        </tr>
+        </table>
+        <button class="btn btn-success margin-bottom" type="submit" name="submit" id="submit">Chercher</button>
+      </form>
       <hr class="padding-bottom">
   </div>
-
-
-
-
-</body>
+  <div class="body text-white padding-bottom padding-top">
+    <table  class = "center" width = "100%">
+      <tr>
+         <th width="25%" > <font size="6"> ID </font></th>
+         <th width="25%"> <font size="6"> Heure</font></th>
+         <th width="25%"> <font size="6"> Centre</font></th>
+         <th width="25%"> <font size="6"> Vaccin</font></th>
+      </tr>
+       <% String[] vaccins = (String[])request.getAttribute("vaccins"); %>
+       <% if (vaccins != null) { %>
+       <% for (int i=0; i<vaccins.length; i++) { %>
+        <tr>
+            <td> <font size="4"> <%out.println((vaccins[i].split(";"))[0]);%></font></td>
+            <td> <font size="4"> <%out.println((vaccins[i].split(";"))[1]);%></font></td>
+            <td> <font size="4">  <%out.println((vaccins[i].split(";"))[2]);%></font></td>
+            <td> <font size="4"> <%out.println((vaccins[i].split(";"))[3]);%></font></td> 
+        </tr>
+       <%}} %>
+  </table>
+  </div>
 
 </html>
