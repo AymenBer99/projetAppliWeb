@@ -1,3 +1,4 @@
+<%@ page pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 
@@ -6,7 +7,7 @@
   <title>COVID</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Montserrat:wght@200&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="css/styles.css">
   <link rel="icon" href="images/logo.jpg">
   <script src=" https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -49,15 +50,27 @@
     <hr class="padding-bottom">
       <div class="MesuresGouv">
         <h2 class="center display-3 title">Mesures Gouvernemantales</h2>
-        <h3 class="center display-6 subtitle"> Découvrez les dernières annonces concernant l'évolution de l'épidémie en France</h3>
+        <h3 class="center display-6 subtitle"> Découvrez les dernires annonces concernant l'Ã©volution de l'Ã©pidÃ©mie en France</h3>
       </div>
+      <form class = "center" action = "MesuresGouv" method= "post">
       <table class="center padding-bottom margin-bottom ">
         <tr>
           <td><p class="text-left ">Date des annonces</p></td>
           <td><input  class = "center" id="dateannonce" type="date" name="dateannonce" required placeholder="JJ/MM/AAAA"></td>
         </tr>
         </table>
+        <button class="btn btn-success margin-bottom" type="submit" name="submit" id="submit">Chercher</button>
+        </form>      
       <hr class="padding-bottom">
+      
+   </div>
+  <div class="body text-white padding-bottom padding-top">     
+       <% String[] mesures = (String[])request.getAttribute("mesure"); %>
+       <% if (mesures != null) { %>
+       <% for (int i=0; i<mesures.length; i++) { %>
+         <td><p class = "center"><font size="4" > <%out.println((mesures[i].split(";"))[0]);%> :</font> <font size="6" ><%out.println((mesures[i].split(";"))[1]);%></font></p></td>
+         <div style="width:1500px;height:200px;border:2px solid #000;" class = "center"><%out.println((mesures[i].split(";"))[2]);%></div>
+       <%}} %>
   </div>
 
 

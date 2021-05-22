@@ -28,7 +28,7 @@
           <a class="nav-link" href="appli/stats.html">Statistiques</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="appli/gouvern.html">Mesures Gouvernementales</a>
+          <a class="nav-link" href="MesuresGouv">Mesures Gouvernementales</a>
         </li>
         <li class="nav-item active">
           <a class="nav-link" href="Vaccination">Vaccination</a>

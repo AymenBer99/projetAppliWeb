@@ -6,6 +6,7 @@ import javax.ejb.Singleton;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import projet.beans.MesuresGouvernementales;
 import projet.beans.RendezvousVaccin;
 import projet.beans.Utilisateur;
 
@@ -32,7 +33,16 @@ public class Facade {
         return em.createQuery("SELECT NEW projet.beans.RendezvousVaccin(r.id,r.Patient,r.Centre,r.Date,r.Heure,r.Vaccin) from RendezvousVaccin r where r.Date = '"+date+"' ", RendezvousVaccin.class).getResultList();
     }
 	
-	public Boolean verifierMdpCorrect(Utilisateur u, String mdp) {
-		return true;
+	public void changeUserPassword(String email,String newMdp) {
+		 Utilisateur user= (Utilisateur)em.find(Utilisateur.class , email);
+		 em.createQuery("update Utilisateur set motDePasse = '"+newMdp+"' where email="+email).executeUpdate();
 	}
+	
+    public void addMesuregouv(MesuresGouvernementales mesure) {
+        em.persist(mesure);
+        em.flush();
+    }
+    public Collection<MesuresGouvernementales> getMesuresgouv(String date){
+        return em.createQuery("SELECT NEW projet.beans.MesuresGouvernementales(r.id,r.Titre,r.Texte,r.Date) from MesuresGouvernementales r where r.Date = '"+date+"' ", MesuresGouvernementales.class).getResultList();
+    }
 }
