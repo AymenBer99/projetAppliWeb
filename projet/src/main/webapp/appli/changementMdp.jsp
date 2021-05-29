@@ -54,7 +54,7 @@
         <table class="center padding-bottom margin-bottom ">
           <tr>
             <td><p class="text-left ">Ancien Mot de passe</p></td>
-            <td><input  class = "center" id="mdp0" type="password" name="mdp" required placeholder="Mot de passe"></td>
+            <td><input  class = "center" id="mdp0" type="password" name="mdp0" required placeholder="Mot de passe"></td>
           </tr>
           <tr>
             <td><p class="text-left ">Nouveau Mot de passe</p></td>
@@ -68,6 +68,9 @@
         <button class="btn btn-success margin-bottom" type="submit" name="submit" id="recontacter">Changer Mot De Passe</button>
       </form>
     </div>
+    <table class="center padding-bottom margin-bottom">
+            ${motdepasse}
+    </table>
       <hr class="padding-bottom">
   </div>
 

@@ -42,7 +42,7 @@ public class changementMdp extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        /* Récupération de la session depuis la requête */
+        /* Rï¿½cupï¿½ration de la session depuis la requï¿½te */
         HttpSession session = request.getSession();
     	
         if (session.getAttribute(ATT_SESSION_USER) != null) {
@@ -58,13 +58,13 @@ public class changementMdp extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	       /* Création du formulaire */
+	       /* Crï¿½ation du formulaire */
         changementForm form = new changementForm();
 		
-        /* Appel au traitement et à la validation de la requête, et récupération du bean en résultant */
+        /* Appel au traitement et ï¿½ la validation de la requï¿½te, et rï¿½cupï¿½ration du bean en rï¿½sultant */
         form.changerMdpUtilisateur(request,facade);
         
-        /* Récupération de la session depuis la requête */
+        /* Rï¿½cupï¿½ration de la session depuis la requï¿½te */
         HttpSession session = request.getSession();
             	
         if (session.getAttribute(ATT_SESSION_USER) != null) {
@@ -76,6 +76,7 @@ public class changementMdp extends HttpServlet {
         if (form.getErreurs().isEmpty()) {
             this.getServletContext().getRequestDispatcher( ACCEUIL ).forward( request, response );       	
         } else {
+        	request.setAttribute("motdepasse", form.getErreurs());
             this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
         }   	
 	}

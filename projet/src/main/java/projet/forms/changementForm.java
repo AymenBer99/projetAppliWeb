@@ -42,18 +42,18 @@ public class changementForm {
         }
         
         try {
-        	validationMotsDePasse(mdp, mdp1);
+        	validationNouveauxMotsDePasse(mdp, mdp1);
         } catch(Exception e) {
         	setErreur(CHAMP_NEWMDP, e.getMessage());
         	setErreur(CHAMP_CONFIRM, e.getMessage());
         }
         
-        /* Initialisation du résultat global de la validation. */
+        /* Initialisation du rï¿½sultat global de la validation. */
         if ( erreurs.isEmpty() ) {
-            resultat = "Succès du changement.";
+            resultat = "Succï¿½s du changement.";
             facade.changeUserPassword(((Utilisateur)session.getAttribute(ATT_SESSION_USER)).getEmail(), mdp);;
         } else {
-            resultat = "Échec de changement."+erreurs.toString();
+            resultat = "ï¿½chec de changement."+erreurs.toString();
         }
         
     }
@@ -66,16 +66,16 @@ public class changementForm {
     	if (user == null) {
 			throw new Exception("Utilisateur non inscrit");
     	} else if(!user.getMotDePasse().equals(motDePasse)){
-			throw new Exception("Mot de passe Incorrect");   		
+			throw new Exception("Mot de passe Incorrect"+user.getMotDePasse()+"/"+motDePasse);   		
     	}
 	}
 
-	private void validationMotsDePasse( String motDePasse, String confirmation ) throws Exception {
+	private void validationNouveauxMotsDePasse( String motDePasse, String confirmation ) throws Exception {
 	    if ( motDePasse != null && confirmation != null ) {
 	        if ( !motDePasse.equals( confirmation ) ) {
-	            throw new Exception( "Les mots de passe entrés sont différents, merci de les saisir à nouveau." );
+	            throw new Exception( "Les mots de passe entrï¿½s sont diffï¿½rents, merci de les saisir ï¿½ nouveau." );
 	        } else if ( motDePasse.length() < 8 ) {
-	            throw new Exception( "Les mots de passe doivent contenir au moins 3 caractères." );
+	            throw new Exception( "Les mots de passe doivent contenir au moins 3 caractï¿½res." );
 	        }
 	    } else {
 	        throw new Exception( "Merci de saisir et confirmer votre mot de passe." );
@@ -83,14 +83,14 @@ public class changementForm {
 	}
 	
     /*
-     * Ajoute un message correspondant au champ spécifié à la map des erreurs.
+     * Ajoute un message correspondant au champ spï¿½cifiï¿½ ï¿½ la map des erreurs.
      */
     private void setErreur( String champ, String message ) {
         erreurs.put( champ, message );
     }
 
     /*
-     * Méthode utilitaire qui retourne null si un champ est vide, et son contenu
+     * Mï¿½thode utilitaire qui retourne null si un champ est vide, et son contenu
      * sinon.
      */
     private static String getValeurChamp( HttpServletRequest request, String nomChamp ) {

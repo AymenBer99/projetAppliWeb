@@ -35,7 +35,9 @@ public class Facade {
 	
 	public void changeUserPassword(String email,String newMdp) {
 		 Utilisateur user= (Utilisateur)em.find(Utilisateur.class , email);
-		 em.createQuery("update Utilisateur set motDePasse = '"+newMdp+"' where email="+email).executeUpdate();
+		 user.setMotDePasse(newMdp);
+		 em.merge(user);
+		 //em.createQuery("update Utilisateur set motDePasse = '"+newMdp+"' where email="+email).executeUpdate();
 	}
 	
     public void addMesuregouv(MesuresGouvernementales mesure) {
