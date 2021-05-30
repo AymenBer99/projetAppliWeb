@@ -25,7 +25,7 @@
           <a class="nav-link" href="#"> Acceuil<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="appli/stats.html">Statistiques</a>
+          <a class="nav-link" href="/projet/Statistiques">Statistiques</a>
         </li>
         <li class="nav-item active">
           <a class="nav-link" href="MesuresGouv">Mesures Gouvernementales</a>

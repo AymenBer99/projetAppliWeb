@@ -25,7 +25,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#"> Acceuil<span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="/projet/Acceuil"> Acceuil<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
           <a class="nav-link" href="/projet/Statistiques">Statistiques</a>
@@ -36,8 +36,8 @@
         <li class="nav-item active">
           <a class="nav-link" href="/projet/Vaccination">Vaccination</a>
         </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="/projet/Connexion">Connexion/Inscription</a>
+         <li class="nav-item active">
+          ${connected}
         </li>
       </ul>
     </div>
@@ -47,31 +47,24 @@
 
   <div class="body text-white padding-bottom padding-top">
 
-    <hr class="padding-bottom" >
-    <div class="Inscription">
-      <h2 class="center display-3 title">Changement de mot de passe</h2>
-      <form class="center" action="changementMdp" method="post">
-        <table class="center padding-bottom margin-bottom ">
-          <tr>
-            <td><p class="text-left ">Ancien Mot de passe</p></td>
-            <td><input  class = "center" id="mdp0" type="password" name="mdp0" required placeholder="Mot de passe"></td>
-          </tr>
-          <tr>
-            <td><p class="text-left ">Nouveau Mot de passe</p></td>
-            <td><input  class = "center" id="mdp" type="password" name="mdp" required placeholder="Mot de passe"></td>
-          </tr>
-          <tr>
-            <td><p class="text-left ">Confirmer Mot de passe</p></td>
-            <td><input  class = "center" id="mdp1" type="password" name="mdp1" required placeholder="Mot de passe"></td>
-          </tr>
+    <hr class="padding-bottom">
+      <div class="MesuresGouv">
+        <h2 class="center display-3 title">Statistiques</h2>
+        <h3 class="center display-6 subtitle"> Consulter les statistiques de l'Ã©volution de l'Ã©pidÃ©mie en France</h3>
+      </div>
+      <form class = "center" action = "MesuresGouv" method= "post">
+      <table class="center padding-bottom margin-bottom ">
+        <tr>
+          <td><p class="text-left ">Date des statistiques</p></td>
+          <td><input  class = "center" id="datestatistiques" type="date" name="datestatistiques" required placeholder="JJ/MM/AAAA"></td>
+        </tr>
         </table>
-        <button class="btn btn-success margin-bottom" type="submit" name="submit" id="recontacter">Changer Mot De Passe</button>
-      </form>
-    </div>
-    <table class="center padding-bottom margin-bottom">
-            ${motdepasse}
-    </table>
+        <button class="btn btn-success margin-bottom" type="submit" name="submit" id="submit">Chercher</button>
+        </form>      
       <hr class="padding-bottom">
+      
+   </div>
+  <div class="body text-white padding-bottom padding-top">     
   </div>
 
 

@@ -8,6 +8,7 @@ import javax.persistence.PersistenceContext;
 
 import projet.beans.MesuresGouvernementales;
 import projet.beans.RendezvousVaccin;
+import projet.beans.Statistiques;
 import projet.beans.Utilisateur;
 
 @Singleton
@@ -77,5 +78,14 @@ public class Facade {
 			   }
 		}
 		return couleurs;
+	}
+	
+	public Statistiques getStat(String date){
+		return em.find(Statistiques.class, date);
+	}
+	
+	public void addStat(Statistiques stat) {
+		em.persist(stat);
+		em.flush();
 	}
 }

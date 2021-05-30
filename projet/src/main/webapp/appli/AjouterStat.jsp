@@ -40,26 +40,30 @@
     </div>
   </nav>
 
-  <form class="center" action="AjouterVaccin" method="post">
+  <form class="center" action="AjouterMesureGouv" method="post">
           <table class="center padding-bottom margin-bottom">
-            <tr>
-              <td><p class="text-left">Heure</p></td>
-              <td><input id="heure" type="time" name="heure" required placeholder="HH:MM"></td>
-            </tr>
-            <tr>
-              <td><p class="text-left">Centre</p></td>
-              <td><input id="centre" type="text" name="centre" required placeholder="Centre"></td>
-            </tr>
-            <tr>
-              <td><p class="text-left">Vaccin</p></td>
-              <td><input id="vaccin" type="text" name="vaccin" required placeholder="Nom vaccin"></td>
-            </tr>
-            <tr>
+          <tr>
               <td><p class="text-left">Date</p></td>
               <td><input id="date" type="date" name="date" required placeholder="Date"></td>
             </tr>
+            <tr>
+              <td><p class="text-left">Nouveaux Cas</p></td>
+              <td><input id="NouveauCas" type="text" name="NouveauCas" required placeholder="Nouveaux Cas"></td>
+            </tr>
+            <tr>
+              <td><p class="text-left">Nombre de deces</p></td>
+              <td><input id="NbrDeces" type="text" name="NbrDeces" required placeholder="Nombre de deces"></td>
+            </tr>
+            <tr>
+              <td><p class="text-left">Nombre de vaccins</p></td>
+              <td><input id="nbrVaccins" type="text" name="nbrVaccins" required placeholder="Nombre de vaccins"></td>
+            </tr>
+  			<tr>
+              <td><p class="text-left">Nombre de guerisons</p></td>
+              <td><input id="nbrGuerison" type="text" name="nbrGuerison" required placeholder="Nombre de guerisons"></td>
+            </tr>          
           </table>
-          <button class="btn btn-success margin-bottom" type="submit" name="submit" id="submit">Ajouter Vaccin</button>
+          <button class="btn btn-success margin-bottom" type="submit" name="submit" id="submit">Ajouter Stat</button>
         </form>
 
   <script src=" https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

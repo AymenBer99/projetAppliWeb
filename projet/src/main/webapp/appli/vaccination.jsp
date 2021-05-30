@@ -28,7 +28,7 @@
           <a class="nav-link" href="/projet/Acceuil"> Acceuil<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="stats.html">Statistiques</a>
+          <a class="nav-link" href="/projet/Statistiques">Statistiques</a>
         </li>
         <li class="nav-item active">
           <a class="nav-link" href="/projet/MesuresGouv">Mesures Gouvernementales</a>

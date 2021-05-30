@@ -47,4 +47,8 @@ public class Statistiques {
     public String getDate() {
     return this.Date;
     }
+    
+    public String toString() {
+        return this.NouveauCas+";"+this.nbrDeces+";"+this.nbrGuerison+";"+this.nbrVaccins;
+    }
 }
