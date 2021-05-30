@@ -42,31 +42,29 @@
 
   <form class="center" action="AjouterStat" method="post">
           <table class="center padding-bottom margin-bottom">
-          <tr>
+            <tr>
               <td><p class="text-left">Date</p></td>
               <td><input id="date" type="date" name="date" required placeholder="Date"></td>
             </tr>
             <tr>
               <td><p class="text-left">Nouveaux Cas</p></td>
-              <td><input id="NouveauCas" type="number" name="NouveauCas" required placeholder="Nouveaux Cas"></td>
+              <td><input id="NouveauCas" type="text" name="NouveauCas" required placeholder="Nouveaux Cas"></td>
             </tr>
             <tr>
               <td><p class="text-left">Nombre de deces</p></td>
-              <td><input id="NbrDeces" type="number" name="NbrDeces" required placeholder="Nombre de deces"></td>
+              <td><input id="NbrDeces" type="text" name="NbrDeces" required placeholder="Nombre de deces"></td>
             </tr>
             <tr>
               <td><p class="text-left">Nombre de vaccins</p></td>
-              <td><input id="nbrVaccins" type="number" name="nbrVaccins" required placeholder="Nombre de vaccins"></td>
+              <td><input id="nbrVaccins" type="text" name="nbrVaccins" required placeholder="Nombre de vaccins"></td>
             </tr>
-  			<tr>
-              <td><p class="text-left">Nombre de guerisons</p></td>
-              <td><input id="nbrGuerison" type="number" name="nbrGuerison" required placeholder="Nombre de guerisons"></td>
-            </tr>          
+  			 <tr>
+              <td><p class="text-left">Nombre de Guerison</p></td>
+              <td><input id="nbrGuerison" type="text" name="nbrGuerison" required placeholder="Nombre de Guerison"></td>
+            </tr>       
           </table>
           <button class="btn btn-success margin-bottom" type="submit" name="submit" id="submit">Ajouter Stat</button>
         </form>
-        ${erreur}
-
   <script src=" https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>

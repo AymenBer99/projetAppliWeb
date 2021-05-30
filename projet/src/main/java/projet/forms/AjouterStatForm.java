@@ -19,8 +19,7 @@ public final class AjouterStatForm {
     public static final String CHAMP_NOUVEAUXCAS = "NouveauCas";
     public static final String CHAMP_NBRDECES = "NbrDeces";
      public static final String CHAMP_NBRVACCIN = "nbrVaccins";
-     public static final String CHAMP_NBRGUERISON = " nbrGuerison";
-     public static final String CHAMP_ERREUR = " erreur";
+     public static final String CHAMP_NBRGUERISON = "nbrGuerison";
 
      private String resultat;
      private Map<String, String> erreurs = new HashMap<String, String>();
@@ -37,21 +36,17 @@ public final class AjouterStatForm {
 
      public Statistiques ajouterstat( HttpServletRequest request ,Facade facade) {
          String date = getValeurChamp( request, CHAMP_DATE );
-         String NouveauCas = getValeurChamp( request, CHAMP_NOUVEAUXCAS );
-         String NbrDeces = getValeurChamp( request, CHAMP_NBRDECES );
-         String nbrVaccins = getValeurChamp( request, CHAMP_NBRVACCIN );
-         String nbrGuerison = getValeurChamp( request, CHAMP_NBRGUERISON );
-
-         
+         int NouveauCas = getValeurChampint( request, CHAMP_NOUVEAUXCAS );
+         int NbrDeces = getValeurChampint( request, CHAMP_NBRDECES );
+         int nbrVaccins = getValeurChampint( request, CHAMP_NBRVACCIN );
+         int nbrGuerison = getValeurChampint( request, CHAMP_NBRGUERISON );
          Statistiques stat = new Statistiques();
-            
         
-         
          stat.setDate(date);
-         stat.setNouveauCas(Integer.parseInt(NouveauCas));
-         stat.setNbrDeces(Integer.parseInt(NbrDeces));
-         stat.setNbrVaccin(Integer.parseInt(nbrVaccins));
-         stat.setNbrGuerison(Integer.parseInt(nbrGuerison));
+         stat.setNouveauCas(NouveauCas);
+         stat.setNbrDeces(NbrDeces);
+         stat.setNbrVaccin(nbrVaccins);
+         stat.setNbrGuerison(nbrGuerison);
          
 
 
@@ -78,12 +73,22 @@ public final class AjouterStatForm {
 	 * Méthode utilitaire qui retourne null si un champ est vide, et son contenu
 	 * sinon.
 	 */
+	
 	private static String getValeurChamp( HttpServletRequest request, String nomChamp ) {
 	    String valeur = request.getParameter( nomChamp );
 	    if ( valeur == null || valeur.trim().length() == 0 ) {
 	        return null;
 	    } else {
 	        return valeur.trim();
+	    }
+	}
+	
+	private static int getValeurChampint( HttpServletRequest request, String nomChamp ) {
+	    String valeur = request.getParameter( nomChamp );
+	    if ( valeur == null || valeur.trim().length() == 0 ) {
+	        return 0;
+	    } else {
+	        return Integer.parseInt(valeur.trim());
 	    }
 	}
 }

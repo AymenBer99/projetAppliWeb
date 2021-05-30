@@ -9,7 +9,6 @@ import javax.persistence.PersistenceContext;
 import javax.servlet.http.HttpServletRequest;
 
 import projet.beans.Utilisateur;
-import projet.beans.MesuresGouvernementales;
 import projet.beans.RendezvousVaccin;
 import projet.beans.Statistiques;
 import projet.servlets.Facade;

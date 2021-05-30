@@ -8,7 +8,7 @@ public class Statistiques {
 
     @Id
     private String Date;
-    private int NouveauCas  ;
+    private int NouveauCas;
     private int nbrDeces;
     private int nbrVaccins;
     private int nbrGuerison;

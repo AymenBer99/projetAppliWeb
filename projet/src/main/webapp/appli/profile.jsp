@@ -53,6 +53,10 @@
         <div >
           <img src="images/profil.jpg" class="rounded mx-auto d-block" width="200" height="200" alt="photo de profil" class="images">
         </div>
+        <form class="center" action="PhotoDeProfil" enctype="multipart/form-data" method="post">
+        <p class = "center"><input type="file" id="pdp" name="pdp"  accept="image/png, image/jpeg"></p>
+         <input type="submit" value="Upload">
+        </form>
         <form class="center" action="Connexion" method="post">
           <table class="center padding-bottom margin-bottom">
             ${profile}

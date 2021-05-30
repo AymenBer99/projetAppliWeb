@@ -48,11 +48,11 @@
   <div class="body text-white padding-bottom padding-top">
 
     <hr class="padding-bottom">
-      <div class="MesuresGouv">
+      <div class="Statistiques">
         <h2 class="center display-3 title">Statistiques</h2>
         <h3 class="center display-6 subtitle"> Consulter les statistiques de l'Ã©volution de l'Ã©pidÃ©mie en France</h3>
       </div>
-      <form class = "center" action = "MesuresGouv" method= "post">
+      <form class = "center" action = "Statistiques" method= "post">
       <table class="center padding-bottom margin-bottom ">
         <tr>
           <td><p class="text-left ">Date des statistiques</p></td>
@@ -65,6 +65,7 @@
       <hr class="padding-bottom">
    </div>
   <div class="body text-white padding-bottom padding-top">     
+  ${stat}
   </div>
 
 

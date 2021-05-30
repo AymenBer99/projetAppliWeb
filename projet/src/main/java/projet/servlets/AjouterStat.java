@@ -33,6 +33,8 @@ public class AjouterStat extends HttpServlet {
     public static final String ATT_CONNECTED = "connected";
 
 
+    
+
 
     public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
         
@@ -68,11 +70,10 @@ public class AjouterStat extends HttpServlet {
             request.setAttribute( ATT_CONNECTED, "<a class=\"nav-link\" href=\"/projet/Connexion\">Connexion/Inscription</a>" );	
         }        
         if (form.getErreurs().isEmpty()) {
-            this.getServletContext().getRequestDispatcher( CONNEXION ).forward( request, response );       	
+            this.getServletContext().getRequestDispatcher( CONNEXION ).forward( request, response );  
         } else {
             this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
         }        
     }
     
-
 }
