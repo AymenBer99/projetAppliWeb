@@ -61,8 +61,8 @@
         </table>
         <button class="btn btn-success margin-bottom" type="submit" name="submit" id="submit">Chercher</button>
         </form>      
+        ${ajoutstat}
       <hr class="padding-bottom">
-      
    </div>
   <div class="body text-white padding-bottom padding-top">     
   </div>

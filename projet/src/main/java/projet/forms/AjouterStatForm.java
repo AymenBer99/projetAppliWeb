@@ -20,6 +20,8 @@ public final class AjouterStatForm {
     public static final String CHAMP_NBRDECES = "NbrDeces";
      public static final String CHAMP_NBRVACCIN = "nbrVaccins";
      public static final String CHAMP_NBRGUERISON = " nbrGuerison";
+     public static final String CHAMP_ERREUR = " erreur";
+
      private String resultat;
      private Map<String, String> erreurs = new HashMap<String, String>();
 
@@ -50,6 +52,7 @@ public final class AjouterStatForm {
          stat.setNbrDeces(Integer.parseInt(NbrDeces));
          stat.setNbrVaccin(Integer.parseInt(nbrVaccins));
          stat.setNbrGuerison(Integer.parseInt(nbrGuerison));
+         
 
 
          

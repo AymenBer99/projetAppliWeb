@@ -28,9 +28,10 @@ public class AjouterStat extends HttpServlet {
 	
     public static final String ATT_SESSION_USER = "sessionUtilisateur";
     public static final String ATT_FORM = "form";
-    public static final String VUE = "/appli/AjoutStat.jsp";
+    public static final String VUE = "/appli/AjouterStat.jsp";
     public static final String CONNEXION = "/appli/statistiques.jsp";
     public static final String ATT_CONNECTED = "connected";
+
 
 
     public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
