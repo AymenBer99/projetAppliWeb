@@ -31,13 +31,13 @@
           <a class="nav-link" href="appli/stats.html">Statistiques</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="appli/gouvern.html">Mesures Gouvernementales</a>
+          <a class="nav-link" href="/projet/MesuresGouv">Mesures Gouvernementales</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="appli/vaccination.html">Vaccination</a>
+          <a class="nav-link" href="/projet/Vaccination">Vaccination</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="appli/signIn.html">Connexion/Inscription</a>
+          <a class="nav-link" href="/projet/Connexion">Connexion/Inscription</a>
         </li>
       </ul>
     </div>

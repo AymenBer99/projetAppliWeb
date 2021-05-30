@@ -40,9 +40,11 @@ public class Facade {
 	
 	
 	public RendezvousVaccin associateVaccinToUser(int idVaccin,Utilisateur user) {
-		RendezvousVaccin r = em.createQuery("SELECT NEW projet.beans.RendezvousVaccin(r.id, r.Patient,r.Centre,r.Date,r.Heure,r.Vaccin) from RendezvousVaccin r where r.id = '"+idVaccin+"'", RendezvousVaccin.class).getSingleResult();
+		RendezvousVaccin r = em.find(RendezvousVaccin.class,idVaccin);
+		if ((r.getPatient() == null) && !(user.isAdmin())) {
 		r.setPatient(user.getEmail());
 		em.merge(r);
+		}
 		return r;
 	}
 	public void changeUserPassword(String email,String newMdp) {
@@ -63,5 +65,17 @@ public class Facade {
 	public void addMesure(MesuresGouvernementales mesure) {
 		em.persist(mesure);
 		em.flush();
+	}
+	
+	public Collection<String> couleursVaccins(Collection<RendezvousVaccin> vaccins){
+		Collection<String> couleurs = new ArrayList<String>();
+		for(RendezvousVaccin rdv : vaccins){
+			   if (rdv.getPatient() != null) {
+				   couleurs.add("red");
+			   }else {
+				   couleurs.add("green");
+			   }
+		}
+		return couleurs;
 	}
 }

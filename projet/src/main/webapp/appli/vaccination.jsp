@@ -31,10 +31,10 @@
           <a class="nav-link" href="stats.html">Statistiques</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="gouvern.jsp">Mesures Gouvernementales</a>
+          <a class="nav-link" href="/projet/MesuresGouv">Mesures Gouvernementales</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="vaccination.jsp">Vaccination</a>
+          <a class="nav-link" href="/projet/Vaccination">Vaccination</a>
         </li>
         <li class="nav-item active">
           ${connected}
@@ -73,10 +73,11 @@
          <th width="25%"> <font size="6"> Vaccin</font></th>
       </tr>
        <% String[] vaccins = (String[])request.getAttribute("vaccins"); %>
+       <% String[] couleurs = (String[])request.getAttribute("couleursVacc"); %>
        <% if (vaccins != null) { %>
        <% for (int i=0; i<vaccins.length; i++) { %>
         <tr>
-            <td> <font size="4"> <a class="nav-link center" href="ReserverVaccin?vaccin=<% out.println((vaccins[i].split(";"))[0]);%>"><font color="green"><%out.println((vaccins[i].split(";"))[0]);%> </font></a></font></td>
+            <td> <font size="4"> <a class="nav-link center" href="ReserverVaccin?vaccin=<% out.println((vaccins[i].split(";"))[0]);%>"><font color=<%out.print(couleurs[i]);%> %><%out.println((vaccins[i].split(";"))[0]);%> </font></a></font></td>
             <td> <font size="4"> <%out.println((vaccins[i].split(";"))[1]);%></font></td>
             <td> <font size="4">  <%out.println((vaccins[i].split(";"))[2]);%></font></td>
             <td> <font size="4"> <%out.println((vaccins[i].split(";"))[3]);%></font></td> 

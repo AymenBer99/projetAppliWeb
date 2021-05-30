@@ -31,10 +31,10 @@
           <a class="nav-link" href="stats.html">Statistiques</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="gouvern.html">Mesures Gouvernementales</a>
+          <a class="nav-link" href="/projet/MesuresGouv">Mesures Gouvernementales</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="vaccination.html">Vaccination</a>
+          <a class="nav-link" href="/projet/Vaccination">Vaccination</a>
         </li>
         <li class="nav-item active">
           ${connected}
@@ -51,19 +51,18 @@
     <h2 class="center display-3 title">Réservation Des Vaccins</h2>
       <div class="Connexion">
         <form class="center" action="Connexion" method="post">
-          <table class="center padding-bottom margin-bottom">
-            ${profile}
+         <table class="center padding-bottom margin-bottom">
+            ${profileVacc}
           </table>
         </form>
         <td>        
         	<form class="center" action="Acceuil" method="get">
-          		<button class="btn btn-success margin-bottom" type="submit" name="submit" id="submit">Vaccin reservé</button>
+          		
             </form></td>
       </div>
       <hr class="padding-bottom">
+      <p class="text-center"><u>  <a class="nav-link" href="/projet/Vaccination">Vaccin reservé</a></u></p>      
   </div>
-
-<span>${vaccinReserved}</span>
 
 
 </body>

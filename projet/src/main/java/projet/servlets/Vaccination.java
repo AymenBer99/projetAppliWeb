@@ -35,6 +35,10 @@ public class Vaccination extends HttpServlet {
     public static final String VUE = "/appli/vaccination.jsp";
     public static final String ACCEUIL = "/index.jsp";
     public static final String ATT_AJOUTVACCIN = "ajoutvaccins";
+    public static final String ATT_COULEURSVACC = "couleursVacc";
+    public static final String ATT_PROFILEVACC = "profileVacc";
+
+    
 
     
     public static Boolean vaccinCreated = false;
@@ -92,7 +96,7 @@ public class Vaccination extends HttpServlet {
         /* Appel au traitement et à la validation de la requête, et récupération du bean en résultant */
         Collection<RendezvousVaccin> vaccins = form.AffichageVaccins(request,facade);
         
-        
+        Collection<String> couleurs = facade.couleursVaccins(vaccins);
         /* Récupération de la session depuis la requête */
         HttpSession session = request.getSession();
 
@@ -104,7 +108,11 @@ public class Vaccination extends HttpServlet {
         } else {
             request.setAttribute( ATT_CONNECTED, "<a class=\"nav-link\" href=\"/projet/Connexion\">Connexion/Inscription</a>" );	
         }
+        String couleursVaccins = Arrays.toString(couleurs.toArray());
+        request.setAttribute( ATT_COULEURSVACC, couleursVaccins.substring(1, couleursVaccins.length()-1).split(","));
         
+        request.setAttribute( ATT_CONNECTED, "<a class=\"nav-link\" href=\"/projet/Profile\">Profile</a>" );
+
         /* Stockage du formulaire et du bean dans l'objet request */
         request.setAttribute( ATT_FORM, form );
         String messageVaccins = Arrays.toString(vaccins.toArray());
