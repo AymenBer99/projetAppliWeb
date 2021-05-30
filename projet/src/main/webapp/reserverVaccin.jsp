@@ -25,19 +25,19 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="/projet/Acceuil"> Acceuil<span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="/projet/index.html"> Acceuil<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
           <a class="nav-link" href="stats.html">Statistiques</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="gouvern.jsp">Mesures Gouvernementales</a>
+          <a class="nav-link" href="gouvern.html">Mesures Gouvernementales</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="vaccination.jsp">Vaccination</a>
+          <a class="nav-link" href="vaccination.html">Vaccination</a>
         </li>
         <li class="nav-item active">
-          ${connected}
+          <a class="nav-link" href="profil.html">Profil</a>
         </li>
       </ul>
     </div>
@@ -48,41 +48,24 @@
   <div class="body text-white padding-bottom padding-top">
 
     <hr class="padding-bottom">
-      <div class="MesuresGouv">
-        <h2 class="center display-3 title">Vaccination</h2>
-        <h3 class="center display-6 subtitle"> DÃ©couvrez les dates de vaccination disponibles.</h3>
+    <h2 class="center display-3 title">Réservation Des Vaccins</h2>
+      <div class="Connexion">
+        <form class="center" action="Connexion" method="post">
+          <table class="center padding-bottom margin-bottom">
+            ${profile}
+          </table>
+        </form>
+        <td>        
+        	<form class="center" action="ReseverVaccin" method="post">
+          		<button class="btn btn-success margin-bottom" type="submit" name="submit" id="submit">Réserver ce vaccin</button>
+            </form></td>
       </div>
-      <form class = "center" action = "Vaccination" method= "post">
-      <table class="center padding-bottom margin-bottom ">
-        <tr>
-          <td><p class="text-left ">Date des annonces</p></td>
-          <td><input  class = "center" id="datevaccins" type="date" name="datevaccins" required placeholder="JJ/MM/AAAA"></td>
-        </tr>
-        </table>
-        <button class="btn btn-success margin-bottom" type="submit" name="submit" id="submit">Chercher</button>
-      </form>
-          ${ajoutvaccins}
       <hr class="padding-bottom">
   </div>
-  <div class="body text-white padding-bottom padding-top">
-    <table  class = "center" width = "100%">
-      <tr>
-         <th width="25%" > <font size="6"> ID </font></th>
-         <th width="25%"> <font size="6"> Heure</font></th>
-         <th width="25%"> <font size="6"> Centre</font></th>
-         <th width="25%"> <font size="6"> Vaccin</font></th>
-      </tr>
-       <% String[] vaccins = (String[])request.getAttribute("vaccins"); %>
-       <% if (vaccins != null) { %>
-       <% for (int i=0; i<vaccins.length; i++) { %>
-        <tr>
-            <td> <font size="4"> <a class="nav-link center" href="reserverVaccin.jsp"><font color="green"><%out.println((vaccins[i].split(";"))[0]);%> </font></a></font></td>
-            <td> <font size="4"> <%out.println((vaccins[i].split(";"))[1]);%></font></td>
-            <td> <font size="4">  <%out.println((vaccins[i].split(";"))[2]);%></font></td>
-            <td> <font size="4"> <%out.println((vaccins[i].split(";"))[3]);%></font></td> 
-        </tr>
-       <%}} %>
-  </table>
-  </div>
+
+
+
+
+</body>
 
 </html>
