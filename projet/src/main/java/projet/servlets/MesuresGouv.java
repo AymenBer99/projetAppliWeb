@@ -29,15 +29,17 @@ public class MesuresGouv extends HttpServlet {
        
 	@EJB
 	private Facade facade;
-	
     public static final String ATT_MESURE = "mesure";
+    public static final String ATT_AJOUTMESURE = "ajoutmesure";
     public static final String ATT_FORM = "form";
     public static final String ATT_SESSION_USER = "sessionUtilisateur";
     public static final String ATT_CONNECTED = "connected";
     public static final String VUE = "/appli/gouvern.jsp";
     public static final String ACCEUIL = "/index.jsp";
-	
-    public static Boolean b = true;
+    public static final String mesure1 = "/index.jsp";
+    
+
+
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -51,22 +53,23 @@ public class MesuresGouv extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         
-		if (b) {
-			MesuresGouvernementales mesure = new MesuresGouvernementales();
-			mesure.setTitre("titre1");
-			mesure.setTexte("texte1");
-            mesure.setDate("2021-05-22");
-            MesuresGouvernementales mesure2 = new MesuresGouvernementales();
-			mesure2.setTitre("titre2");
-			mesure2.setTexte("texte2");
-            mesure2.setDate("2021-05-22");
-            facade.addMesuregouv(mesure);
-            facade.addMesuregouv(mesure2);
-            b = false;
-		}
 		
+        
+        /* Récupération de la session depuis la requête */
+        HttpSession session = request.getSession();
+        
+        if (session.getAttribute(ATT_SESSION_USER) != null) {
+            request.setAttribute( ATT_CONNECTED, "<a class=\"nav-link\" href=\"/projet/Profile\">Profile</a>" );
+            if ( ((Utilisateur) session.getAttribute(ATT_SESSION_USER)).isAdmin()) {
+            	request.setAttribute( ATT_AJOUTMESURE, "<a class=\"nav-link center\" href=\"/projet/AjouterMesureGouv\">Ajouter mesure</a>" );
+            }
+        } else {
+            request.setAttribute( ATT_CONNECTED, "<a class=\"nav-link\" href=\"/projet/Connexion\">Connexion/Inscription</a>" );	
+        }
+        
         /* Affichage de la page d'inscription */
         this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );	
+        
     }
 
 	/**
@@ -85,6 +88,9 @@ public class MesuresGouv extends HttpServlet {
 
         if (session.getAttribute(ATT_SESSION_USER) != null) {
             request.setAttribute( ATT_CONNECTED, "<a class=\"nav-link\" href=\"/projet/Profile\">Profile</a>" );
+            if ( ((Utilisateur) session.getAttribute(ATT_SESSION_USER)).isAdmin()) {
+            	request.setAttribute( ATT_AJOUTMESURE, "<a class=\"nav-link center\" href=\"/projet/AjouterMesureGouv\">Ajouter mesure</a>" );
+            }
         } else {
             request.setAttribute( ATT_CONNECTED, "<a class=\"nav-link\" href=\"/projet/Connexion\">Connexion/Inscription</a>" );	
         }

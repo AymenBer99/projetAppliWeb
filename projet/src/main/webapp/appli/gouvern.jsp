@@ -25,7 +25,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="../index.html"> Acceuil<span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="/projet/Acceuill"> Acceuil<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
           <a class="nav-link" href="stats.html">Statistiques</a>
@@ -36,8 +36,8 @@
         <li class="nav-item active">
           <a class="nav-link" href="vaccination.html">Vaccination</a>
         </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="signIn.html">Connexion/Inscription</a>
+         <li class="nav-item active">
+          ${connected}
         </li>
       </ul>
     </div>
@@ -61,6 +61,7 @@
         </table>
         <button class="btn btn-success margin-bottom" type="submit" name="submit" id="submit">Chercher</button>
         </form>      
+           ${ajoutmesure}
       <hr class="padding-bottom">
       
    </div>

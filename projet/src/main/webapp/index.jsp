@@ -67,13 +67,30 @@
         <div class="carousel-inner">
           <div class="carousel-item active">
               <h3 class="center">Mesures Jour J</h3>
+             <%String[] mesures1 = (String[])request.getAttribute("mesure1"); %>
+       <% if (mesures1 != null) { %>
+       <% for (int i=0; i<mesures1.length; i++) { %>
+         <td><p class = "center"><font size="4" > <%out.println((mesures1[i].split(";"))[0]);%> :</font> <font size="6" ><%out.println((mesures1[i].split(";"))[1]);%></font></p></td>
+         <div style="width:400px;height:200px;border:2px solid #000;" class = "center"><%out.println((mesures1[i].split(";"))[2]);%></div>
+       <%}} %>
           </div>
           <div class="carousel-item">
               <h3 class="center">Mesures Jour J-1</h3>
+              <% String[] mesures2 = (String[])request.getAttribute("mesure2"); %>
+       <% if (mesures2 != null) { %>
+       <% for (int i=0; i<mesures2.length; i++) { %>
+         <td><p class = "center"><font size="4" > <%out.println((mesures2[i].split(";"))[0]);%> :</font> <font size="6" ><%out.println((mesures2[i].split(";"))[1]);%></font></p></td>
+         <div style="width:400px;height:200px;border:2px solid #000;" class = "center"><%out.println((mesures2[i].split(";"))[2]);%></div>
+       <%}} %>
           </div>
           <div class="carousel-item">
-              <h1 class="center">Mesures Jour J-2</h1>
-          </div>
+              <h3 class="center">Mesures Jour J-2</h3>
+             <% String[] mesures3 = (String[])request.getAttribute("mesure3"); %>
+       <% if (mesures3 != null) { %>
+       <% for (int i=0; i<mesures3.length; i++) { %>
+         <td><p class = "center"><font size="4" > <%out.println((mesures3[i].split(";"))[0]);%> :</font> <font size="6" ><%out.println((mesures3[i].split(";"))[1]);%></font></p></td>
+         <div style="width:400px;height:200px;border:2px solid #000;" class = "center"><%out.println((mesures3[i].split(";"))[2]);%></div>
+       <%}} %>
         </div>
         <a class="carousel-control-prev left-arrow align-items-left" href="#carouselExample" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>

@@ -25,7 +25,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="./index.jsp"> Acceuil<span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="/projet/Acceuil"> Acceuil<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
           <a class="nav-link" href="stats.html">Statistiques</a>
@@ -61,6 +61,7 @@
         </table>
         <button class="btn btn-success margin-bottom" type="submit" name="submit" id="submit">Chercher</button>
       </form>
+          ${ajoutvaccins}
       <hr class="padding-bottom">
   </div>
   <div class="body text-white padding-bottom padding-top">

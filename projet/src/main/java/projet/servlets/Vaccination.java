@@ -34,6 +34,8 @@ public class Vaccination extends HttpServlet {
     public static final String ATT_CONNECTED = "connected";
     public static final String VUE = "/appli/vaccination.jsp";
     public static final String ACCEUIL = "/index.jsp";
+    public static final String ATT_AJOUTVACCIN = "ajoutvaccins";
+
     
     public static Boolean vaccinCreated = false;
 	
@@ -50,7 +52,7 @@ public class Vaccination extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         
-		if (!vaccinCreated) {
+		/*if (!vaccinCreated) {
 			RendezvousVaccin vaccin = new RendezvousVaccin();
             vaccin.setDate("2021-05-22");
 			vaccin.setVaccin("Pfizer");
@@ -64,8 +66,18 @@ public class Vaccination extends HttpServlet {
 			vaccin2.setHeure("14:20");
             facade.addRendezvousVaccin(vaccin2);
 			vaccinCreated = true;
-		}
-		
+		}*/
+		 /* Récupération de la session depuis la requête */
+        HttpSession session = request.getSession();
+
+		if (session.getAttribute(ATT_SESSION_USER) != null) {
+            request.setAttribute( ATT_CONNECTED, "<a class=\"nav-link\" href=\"/projet/Profile\">Profile</a>" );
+            if ( ((Utilisateur) session.getAttribute(ATT_SESSION_USER)).isAdmin()) {
+            	request.setAttribute( ATT_AJOUTVACCIN, "<a class=\"nav-link center\" href=\"/projet/AjouterVaccin\">Ajouter Vaccin</a>" );
+            }
+        } else {
+            request.setAttribute( ATT_CONNECTED, "<a class=\"nav-link\" href=\"/projet/Connexion\">Connexion/Inscription</a>" );	
+        }
         /* Affichage de la page d'inscription */
         this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );	
     }
@@ -86,6 +98,9 @@ public class Vaccination extends HttpServlet {
 
         if (session.getAttribute(ATT_SESSION_USER) != null) {
             request.setAttribute( ATT_CONNECTED, "<a class=\"nav-link\" href=\"/projet/Profile\">Profile</a>" );
+            if ( ((Utilisateur) session.getAttribute(ATT_SESSION_USER)).isAdmin()) {
+            	request.setAttribute( ATT_AJOUTVACCIN, "<a class=\"nav-link center\" href=\"/projet/AjouterVaccin\">Ajouter Vaccin</a>" );
+            }
         } else {
             request.setAttribute( ATT_CONNECTED, "<a class=\"nav-link\" href=\"/projet/Connexion\">Connexion/Inscription</a>" );	
         }
