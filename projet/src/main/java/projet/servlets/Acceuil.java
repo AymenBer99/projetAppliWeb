@@ -57,18 +57,18 @@ public class Acceuil extends HttpServlet {
 	    Collection<MesuresGouvernementales> mesures1 = facade.getMesuresgouv(date);
 	    String mesuresString1 = Arrays.toString(mesures1.toArray());
 	    if (!mesuresString1.equals("[]")) {
-	    request.setAttribute( ATTRIBUT_MESURE1, mesuresString1.substring(1, mesuresString1.length()-2).split(","));  
+	    	request.setAttribute( ATTRIBUT_MESURE1, mesuresString1.substring(1, mesuresString1.length()-2).split(","));  
 	    } 
 	    Collection<MesuresGouvernementales> mesures2 = facade.getMesuresgouv(dateJ_1(date));
 	    String mesuresString2 = Arrays.toString(mesures2.toArray());
 	    if (!mesuresString2.equals("[]")) {
 		    request.setAttribute( ATTRIBUT_MESURE2, mesuresString2.substring(1, mesuresString2.length()-2).split(","));  
-		    } 
+		} 
 	    Collection<MesuresGouvernementales> mesures3 = facade.getMesuresgouv(dateJ_2(date));
 	    String mesuresString3 = Arrays.toString(mesures3.toArray());
 	    if (!mesuresString3.equals("[]")) {
 		    request.setAttribute( ATTRIBUT_MESURE3, mesuresString3.substring(1, mesuresString3.length()-2).split(","));  
-		    }  
+		}  
 	    
         /* Affichage de la page d'inscription */
         this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );

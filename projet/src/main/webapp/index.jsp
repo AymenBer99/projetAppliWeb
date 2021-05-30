@@ -49,7 +49,7 @@
 
       <div class="col-sm-12 col-md-6 d-flex flex-column justify-content-center align-items-center">
         <h1 class="title display-2 align-items-center text-center">COVID</h1>
-        <h2 class="subtitle display-4 text-center">Outil permettant de suivre l'Ã©volution de l'Ã©pidÃ©mie</h2>
+        <h2 class="subtitle display-4 text-center">Outil permettant de suivre l'évolution de l'épidémie</h2>
       </div>
 
     </div>
@@ -61,7 +61,7 @@
     <div id="news" class="container padding-bottom">
 
       <h1 class="center display-2"><i class="fas fa-newspaper"></i></h1>
-      <h2 class="center display-3 title">ActualitÃ©s</h2>
+      <h2 class="center display-3 title">Actualités</h2>
 
       <div id="carouselExample" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
@@ -91,6 +91,7 @@
          <td><p class = "center"><font size="4" > <%out.println((mesures3[i].split(";"))[0]);%> :</font> <font size="6" ><%out.println((mesures3[i].split(";"))[1]);%></font></p></td>
          <div style="width:400px;height:200px;border:2px solid #000;" class = "center"><%out.println((mesures3[i].split(";"))[2]);%></div>
        <%}} %>
+        </div>
         </div>
         <a class="carousel-control-prev left-arrow align-items-left" href="#carouselExample" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>

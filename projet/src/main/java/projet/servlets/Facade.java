@@ -39,7 +39,12 @@ public class Facade {
     }
 	
 	
-	
+	public RendezvousVaccin associateVaccinToUser(int idVaccin,Utilisateur user) {
+		RendezvousVaccin r = em.createQuery("SELECT NEW projet.beans.RendezvousVaccin(r.id, r.Patient,r.Centre,r.Date,r.Heure,r.Vaccin) from RendezvousVaccin r where r.id = '"+idVaccin+"'", RendezvousVaccin.class).getSingleResult();
+		r.setPatient(user.getEmail());
+		em.merge(r);
+		return r;
+	}
 	public void changeUserPassword(String email,String newMdp) {
 		 Utilisateur user= (Utilisateur)em.find(Utilisateur.class , email);
 		 user.setMotDePasse(newMdp);

@@ -108,7 +108,7 @@ public class Vaccination extends HttpServlet {
         /* Stockage du formulaire et du bean dans l'objet request */
         request.setAttribute( ATT_FORM, form );
         String messageVaccins = Arrays.toString(vaccins.toArray());
-        request.setAttribute( ATT_VACCIN, messageVaccins.substring(1, messageVaccins.length()-2).split(","));
+        request.setAttribute( ATT_VACCIN, messageVaccins.substring(1, messageVaccins.length()-1).split(","));
         
         this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
         	

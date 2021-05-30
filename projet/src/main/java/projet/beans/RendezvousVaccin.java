@@ -32,6 +32,10 @@ public class RendezvousVaccin {
         this.Vaccin = v;   	
     }
     
+    public Integer getId() {
+    return this.id;
+    }
+    
     public void setPatient(String patient) {
     this.Patient = patient;
     }
