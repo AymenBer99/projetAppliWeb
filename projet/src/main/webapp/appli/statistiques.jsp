@@ -50,7 +50,7 @@
     <hr class="padding-bottom">
       <div class="Statistiques">
         <h2 class="center display-3 title">Statistiques</h2>
-        <h3 class="center display-6 subtitle"> Consulter les statistiques de l'Ã©volution de l'Ã©pidÃ©mie en France</h3>
+        <h3 class="center display-6 subtitle"> Consulter les statistiques de l'évolution de l'épidémie en France</h3>
       </div>
       <form class = "center" action = "Statistiques" method= "post">
       <table class="center padding-bottom margin-bottom ">

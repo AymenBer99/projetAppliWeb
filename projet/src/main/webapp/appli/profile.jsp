@@ -51,7 +51,7 @@
     <h2 class="center display-3 title">Profil</h2>
       <div class="Connexion">
         <div >
-          <img src="images/profil.jpg" class="rounded mx-auto d-block" width="200" height="200" alt="photo de profil" class="images">
+          <img src="${PhotoDeProfil}" class="rounded mx-auto d-block" width="200" height="200" alt="photo de profil" class="images">
         </div>
         <form class="center" action="PhotoDeProfil" enctype="multipart/form-data" method="post">
         <p class = "center"><input type="file" id="pdp" name="pdp"  accept="image/png, image/jpeg"></p>

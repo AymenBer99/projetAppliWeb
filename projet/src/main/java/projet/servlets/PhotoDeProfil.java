@@ -2,6 +2,9 @@ package projet.servlets;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Paths;
+
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -29,6 +32,8 @@ public class PhotoDeProfil extends HttpServlet {
     public static final String VUE = "/appli/profile.jsp";
     public static final String ACCEUIL = "/index.jsp";
     public static final String ATT_PROFILE = "profile";
+    public static final String ATT_PDP = "PhotoDeProfil";
+
     
     /**
      * @see HttpServlet#HttpServlet()
@@ -37,6 +42,9 @@ public class PhotoDeProfil extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
+    
+    @EJB
+	private Facade facade;
 
     public static final String IMAGES = "/pdp";
     
@@ -58,15 +66,14 @@ public class PhotoDeProfil extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        for ( Part part : request.getParts() ) {
-            String fileName = getFileName( part );
-            String fullPath = uploadPath + File.separator + fileName;
-            part.write( fullPath );
-        }
- HttpSession session = request.getSession();
+       Part part = request.getPart("pdp");
+       String fileName = getFileName( part );
+       String fullPath = uploadPath + File.separator + fileName;
+       part.write(fullPath);
+       HttpSession session = request.getSession();
 		
         Utilisateur user = (Utilisateur) session.getAttribute(ATT_SESSION_USER);
-        
+        facade.changePath(user, "pdp/"+fileName);
         request.setAttribute( ATT_USER, session.getAttribute(ATT_SESSION_USER) );
 
         String infosUser =  "<tr><td><p class=\"text-left\" style=\"color:white\">Nom :"+user.getNom()+"</p></td></tr>"
@@ -83,7 +90,8 @@ public class PhotoDeProfil extends HttpServlet {
         } else {
         	request.setAttribute(ATT_PROFILE, infosUser);
         }
-        
+        request.setAttribute(ATT_PDP, user.getPath());
+
         this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );	
 
     }

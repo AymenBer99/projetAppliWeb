@@ -1,7 +1,6 @@
 package projet.servlets;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 
@@ -15,7 +14,6 @@ import javax.servlet.http.HttpSession;
 
 import projet.beans.RendezvousVaccin;
 import projet.beans.Utilisateur;
-import projet.forms.ConnexionForm;
 import projet.forms.VaccinationForm;
 
 /**
@@ -50,7 +48,6 @@ public class Vaccination extends HttpServlet {
      */
     public Vaccination() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**

@@ -23,6 +23,8 @@ public class Profile extends HttpServlet {
     public static final String VUE = "/appli/profile.jsp";
     public static final String ACCEUIL = "/index.jsp";
     public static final String ATT_PROFILE = "profile";
+    public static final String ATT_PDP = "PhotoDeProfil";
+
     
     /**
      * @see HttpServlet#HttpServlet()
@@ -57,7 +59,7 @@ public class Profile extends HttpServlet {
         } else {
         	request.setAttribute(ATT_PROFILE, infosUser);
         }
-        
+        request.setAttribute(ATT_PDP, user.getPath());
 		this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );	
 	}
 
@@ -66,10 +68,12 @@ public class Profile extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
+        Utilisateur user = (Utilisateur) session.getAttribute(ATT_SESSION_USER);
+
 		session.invalidate();
 		
         request.setAttribute( ATT_CONNECTED, "<a class=\"nav-link\" href=\"/projet/Connexion\">Connexion/Inscription</a>" );	
-
+        request.setAttribute(ATT_PDP, user.getPath());
         this.getServletContext().getRequestDispatcher( ACCEUIL ).forward( request, response );	
 	}
 

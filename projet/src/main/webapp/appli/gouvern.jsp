@@ -50,7 +50,7 @@
     <hr class="padding-bottom">
       <div class="MesuresGouv">
         <h2 class="center display-3 title">Mesures Gouvernemantales</h2>
-        <h3 class="center display-6 subtitle"> Découvrez les dernires annonces concernant l'Ã©volution de l'Ã©pidÃ©mie en France</h3>
+        <h3 class="center display-6 subtitle"> Découvrez les dernires annonces concernant l'évolution de l'épidemie en France</h3>
       </div>
       <form class = "center" action = "MesuresGouv" method= "post">
       <table class="center padding-bottom margin-bottom ">

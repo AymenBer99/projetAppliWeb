@@ -11,11 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import projet.beans.MesuresGouvernementales;
-import projet.beans.RendezvousVaccin;
 import projet.beans.Utilisateur;
 import projet.forms.AjouterMesureGouvForm;
-import projet.forms.AjouterVaccinForm;
-import projet.forms.InscriptionForm;
 
 /**
  * Servlet implementation class AjouterVaccin

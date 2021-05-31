@@ -90,4 +90,9 @@ public class Facade {
 	public Collection<Statistiques> getStatistiques() {
         return em.createQuery("SELECT NEW projet.beans.Statistiques(r.Date,r.NouveauCas,r.nbrDeces,r.nbrVaccins,r.nbrGuerison) from projet.beans.Statistiques r", Statistiques.class).getResultList();
 	}
+
+	public void changePath(Utilisateur user, String fullPath) {
+     user.setPath(fullPath);
+     em.merge(user);
+	}
 }

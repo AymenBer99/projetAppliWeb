@@ -13,7 +13,8 @@ public class Utilisateur {
     private String prenom;
     private String dateDeNaissance;
     private Boolean admin;
-
+    private String path = "images/profil.jpg";
+    
     public void setEmail(String email) {
     this.email = email;
     }
@@ -55,4 +56,10 @@ public class Utilisateur {
     public String getDateDeNaissance() {
     return dateDeNaissance;
     }
+	public String getPath() {
+		return path;
+	}
+	public void setPath(String path) {
+		this.path = path;
+	}
 }

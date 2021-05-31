@@ -1,11 +1,6 @@
 package projet.servlets;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
-
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,13 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import projet.beans.MesuresGouvernementales;
-import projet.beans.RendezvousVaccin;
 import projet.beans.Utilisateur;
-import projet.forms.ConnexionForm;
-import projet.forms.MesuresgouvForm;
 import projet.forms.StatistiquesForm;
-import projet.forms.VaccinationForm;
 
 /**
  * Servlet implementation class Connexion

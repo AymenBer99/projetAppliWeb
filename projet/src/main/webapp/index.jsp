@@ -152,7 +152,7 @@
   <div class="footer padding-top padding-bottom center">
     <div class="container">
       <div class="row">
-        <div class="col"><a href=""><button class="btn btn-success" type="button" name="button">Adresse mail de contact</button></a></div>
+        <div class="col"><a href="mailto:othmane.farah@hotmail.com"><button class="btn btn-success" type="button" name="button">Contactez Nous</button></a></div>
       </div>
     </div>
   </div>
