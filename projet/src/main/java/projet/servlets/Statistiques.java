@@ -38,7 +38,8 @@ public class Statistiques extends HttpServlet {
     public static final String ATT_CONNECTED = "connected";
     public static final String VUE = "/appli/statistiques.jsp";
     public static final String ACCEUIL = "/index.jsp";
-    
+    public static final String ATT_ERREUR = "erreur";
+
 
     
 
@@ -84,7 +85,9 @@ public class Statistiques extends HttpServlet {
 		
         /* Appel au traitement et à la validation de la requête, et récupération du bean en résultant */
         projet.beans.Statistiques stat = form.AffichageStatistiques(request,facade);
-        
+
+        /* Stockage du formulaire et du bean dans l'objet request */
+        request.setAttribute( ATT_FORM, form );
         
         /* Récupération de la session depuis la requête */
         HttpSession session = request.getSession();
@@ -98,11 +101,13 @@ public class Statistiques extends HttpServlet {
             request.setAttribute( ATT_CONNECTED, "<a class=\"nav-link\" href=\"/projet/Connexion\">Connexion/Inscription</a>" );	
         }
         
-        /* Stockage du formulaire et du bean dans l'objet request */
-        request.setAttribute( ATT_FORM, form );
-        String statstring = stat.toString();
+        if (stat != null) {
+            String statstring = stat.toString();
         request.setAttribute( ATT_STAT, statstring);
-        
+        request.setAttribute( ATT_ERREUR, "");
+        }else{
+        request.setAttribute( ATT_ERREUR, "<p class = \"center\">Aucun Statistique disponible pour cette date</p>");
+         } 
         this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
         	
     }

@@ -60,6 +60,7 @@
         </tr>
         </table>
         <button class="btn btn-success margin-bottom" type="submit" name="submit" id="submit">Chercher</button>
+           ${erreur}
         </form>      
         ${ajoutstat}
       <hr class="padding-bottom">

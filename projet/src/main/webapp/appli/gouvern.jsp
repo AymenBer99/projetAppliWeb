@@ -60,6 +60,7 @@
         </tr>
         </table>
         <button class="btn btn-success margin-bottom" type="submit" name="submit" id="submit">Chercher</button>
+        ${erreur}
         </form>      
            ${ajoutmesure}
       <hr class="padding-bottom">
@@ -70,7 +71,7 @@
        <% if (mesures != null) { %>
        <% for (int i=0; i<mesures.length; i++) { %>
          <td><p class = "center"><font size="4" > <%out.println((mesures[i].split(";"))[0]);%> :</font> <font size="6" ><%out.println((mesures[i].split(";"))[1]);%></font></p></td>
-         <div style="width:1500px;height:200px;border:2px solid #000;" class = "center"><%out.println((mesures[i].split(";"))[2]);%></div>
+         <div style="overflow-wrap: break-word;width:1500px;border:2px solid #000;" class = "center"><span><%out.println((mesures[i].split(";"))[2]);%></span></div>
        <%}} %>
   </div>
 

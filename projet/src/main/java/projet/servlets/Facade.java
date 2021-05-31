@@ -56,10 +56,7 @@ public class Facade {
 		 //em.createQuery("update Utilisateur set motDePasse = '"+newMdp+"' where email="+email).executeUpdate();
 	}
 	
-    public void addMesuregouv(MesuresGouvernementales mesure) {
-        em.persist(mesure);
-        em.flush();
-    }
+   
     public Collection<MesuresGouvernementales> getMesuresgouv(String date){
         return em.createQuery("SELECT NEW projet.beans.MesuresGouvernementales(r.id,r.Titre,r.Texte,r.Date) from MesuresGouvernementales r where r.Date = '"+date+"' ", MesuresGouvernementales.class).getResultList();
     }

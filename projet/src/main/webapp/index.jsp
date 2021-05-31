@@ -63,7 +63,7 @@
       <h1 class="center display-2"><i class="fas fa-newspaper"></i></h1>
       <h2 class="center display-3 title">Actualités</h2>
 
-      <div id="carouselExample" class="carousel slide" data-ride="carousel">
+      <div style="height:auto;width:900px" autoid="carouselExample" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
               <h3 class="center">Mesures Jour J</h3>
@@ -71,7 +71,7 @@
        <% if (mesures1 != null) { %>
        <% for (int i=0; i<mesures1.length; i++) { %>
          <td><p class = "center"><font size="4" > <%out.println((mesures1[i].split(";"))[0]);%> :</font> <font size="6" ><%out.println((mesures1[i].split(";"))[1]);%></font></p></td>
-         <div style="width:400px;height:200px;border:2px solid #000;" class = "center"><%out.println((mesures1[i].split(";"))[2]);%></div>
+         <div style="width:600px;overflow-wrap: break-word;border:2px solid #000;" class = "center"><%out.println((mesures1[i].split(";"))[2]);%></div>
        <%}} %>
           </div>
           <div class="carousel-item">
@@ -80,7 +80,7 @@
        <% if (mesures2 != null) { %>
        <% for (int i=0; i<mesures2.length; i++) { %>
          <td><p class = "center"><font size="4" > <%out.println((mesures2[i].split(";"))[0]);%> :</font> <font size="6" ><%out.println((mesures2[i].split(";"))[1]);%></font></p></td>
-         <div style="width:400px;height:200px;border:2px solid #000;" class = "center"><%out.println((mesures2[i].split(";"))[2]);%></div>
+         <div style="width:600px;overflow-wrap: break-word;border:2px solid #000;" class = "center"><%out.println((mesures2[i].split(";"))[2]);%></div>
        <%}} %>
           </div>
           <div class="carousel-item">
@@ -89,7 +89,7 @@
        <% if (mesures3 != null) { %>
        <% for (int i=0; i<mesures3.length; i++) { %>
          <td><p class = "center"><font size="4" > <%out.println((mesures3[i].split(";"))[0]);%> :</font> <font size="6" ><%out.println((mesures3[i].split(";"))[1]);%></font></p></td>
-         <div style="width:400px;height:200px;border:2px solid #000;" class = "center"><%out.println((mesures3[i].split(";"))[2]);%></div>
+         <div style="width:600px;overflow-wrap: break-word;border:2px solid #000;" class = "center"><%out.println((mesures3[i].split(";"))[2]);%></div>
        <%}} %>
         </div>
         </div>
@@ -139,9 +139,9 @@
 
 
     <hr class="padding-bottom">
-    <div id="stats" class="container padding-bottom">
+    <div  id="stats" class="container padding-bottom">
       <h2 class="center display-3 title">Statistiques</h2>
-      <body> <div id="chart" class ="center" style="width: 900px; height: 500px"></div>     
+      <body> <div id="chart" class ="center" style="width: auto; height: auto"></div>     
       </body>
           
     </div>

@@ -36,7 +36,8 @@ public class MesuresGouv extends HttpServlet {
     public static final String ATT_CONNECTED = "connected";
     public static final String VUE = "/appli/gouvern.jsp";
     public static final String ACCEUIL = "/index.jsp";
-    public static final String mesure1 = "/index.jsp";
+    public static final String ATT_ERREUR = "erreur";
+
     
 
 
@@ -81,10 +82,13 @@ public class MesuresGouv extends HttpServlet {
 		
         /* Appel au traitement et à la validation de la requête, et récupération du bean en résultant */
         Collection<MesuresGouvernementales> mesures = form.AffichageMesures(request,facade);
-        
+        String mesuresString = Arrays.toString(mesures.toArray());
+
         
         /* Récupération de la session depuis la requête */
         HttpSession session = request.getSession();
+        /* Stockage du formulaire et du bean dans l'objet request */
+        request.setAttribute( ATT_FORM, form );
 
         if (session.getAttribute(ATT_SESSION_USER) != null) {
             request.setAttribute( ATT_CONNECTED, "<a class=\"nav-link\" href=\"/projet/Profile\">Profile</a>" );
@@ -95,11 +99,13 @@ public class MesuresGouv extends HttpServlet {
             request.setAttribute( ATT_CONNECTED, "<a class=\"nav-link\" href=\"/projet/Connexion\">Connexion/Inscription</a>" );	
         }
         
-        /* Stockage du formulaire et du bean dans l'objet request */
-        request.setAttribute( ATT_FORM, form );
-        String mesuresString = Arrays.toString(mesures.toArray());
+        if ( (!mesuresString.equals("[]"))) {
         request.setAttribute( ATT_MESURE, mesuresString.substring(1, mesuresString.length()-2).split(","));
-        
+        request.setAttribute( ATT_ERREUR, "");
+    	} else {
+        request.setAttribute( ATT_ERREUR, "<p class = \"center\">Aucune mesure disponible pour cette date</p>");
+
+    	}
         this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
         	
     }

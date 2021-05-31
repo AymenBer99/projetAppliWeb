@@ -37,6 +37,8 @@ public class Vaccination extends HttpServlet {
     public static final String ATT_AJOUTVACCIN = "ajoutvaccins";
     public static final String ATT_COULEURSVACC = "couleursVacc";
     public static final String ATT_PROFILEVACC = "profileVacc";
+    public static final String ATT_ERREUR = "erreur";
+
 
     
 
@@ -95,10 +97,11 @@ public class Vaccination extends HttpServlet {
 		
         /* Appel au traitement et à la validation de la requête, et récupération du bean en résultant */
         Collection<RendezvousVaccin> vaccins = form.AffichageVaccins(request,facade);
+        String messageVaccins = Arrays.toString(vaccins.toArray());
         
-        Collection<String> couleurs = facade.couleursVaccins(vaccins);
         /* Récupération de la session depuis la requête */
         HttpSession session = request.getSession();
+        request.setAttribute( ATT_FORM, form );
 
         if (session.getAttribute(ATT_SESSION_USER) != null) {
             request.setAttribute( ATT_CONNECTED, "<a class=\"nav-link\" href=\"/projet/Profile\">Profile</a>" );
@@ -108,15 +111,23 @@ public class Vaccination extends HttpServlet {
         } else {
             request.setAttribute( ATT_CONNECTED, "<a class=\"nav-link\" href=\"/projet/Connexion\">Connexion/Inscription</a>" );	
         }
+       
+        
+        if ( (!messageVaccins.equals("[]"))) {
+        Collection<String> couleurs = facade.couleursVaccins(vaccins);
+ 
         String couleursVaccins = Arrays.toString(couleurs.toArray());
         request.setAttribute( ATT_COULEURSVACC, couleursVaccins.substring(1, couleursVaccins.length()-1).split(","));
         
-        request.setAttribute( ATT_CONNECTED, "<a class=\"nav-link\" href=\"/projet/Profile\">Profile</a>" );
 
         /* Stockage du formulaire et du bean dans l'objet request */
-        request.setAttribute( ATT_FORM, form );
-        String messageVaccins = Arrays.toString(vaccins.toArray());
+       
         request.setAttribute( ATT_VACCIN, messageVaccins.substring(1, messageVaccins.length()-1).split(","));
+        request.setAttribute( ATT_ERREUR, "");
+        } else {
+            request.setAttribute( ATT_ERREUR, "<p class = \"center\">Aucun vaccin disponible pour cette date</p>");
+
+        }
         
         this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
         	

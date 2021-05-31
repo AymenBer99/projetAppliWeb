@@ -48,7 +48,7 @@
             </tr>
             <tr>
               <td><p class="text-left">Texte</p></td>
-              <td><input id="text" type="text" name="text" required placeholder="Text"></td>
+              <td><textarea id="text" name="text">Text</textarea></td>
             </tr>
             <tr>
               <td><p class="text-left">Date</p></td>
