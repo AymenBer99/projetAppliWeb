@@ -28,6 +28,8 @@ public class AjouterVaccin extends HttpServlet {
     public static final String VUE = "/appli/AjoutVaccin.jsp";
     public static final String CONNEXION = "/appli/vaccination.jsp";
     public static final String ATT_CONNECTED = "connected";
+    public static final String ATT_AJOUTVACCIN = "ajoutvaccins";
+
 
 
     public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
@@ -60,6 +62,9 @@ public class AjouterVaccin extends HttpServlet {
     	
 		if (session.getAttribute(ATT_SESSION_USER) != null) {
             request.setAttribute( ATT_CONNECTED, "<a class=\"nav-link\" href=\"/projet/Profile\">Profile</a>" );
+            if ( ((Utilisateur) session.getAttribute(ATT_SESSION_USER)).isAdmin()) {
+            	request.setAttribute( ATT_AJOUTVACCIN, "<a class=\"nav-link center\" href=\"/projet/AjouterVaccin\">Ajouter Vaccin</a>" );
+            }
         } else {
             request.setAttribute( ATT_CONNECTED, "<a class=\"nav-link\" href=\"/projet/Connexion\">Connexion/Inscription</a>" );	
         }        

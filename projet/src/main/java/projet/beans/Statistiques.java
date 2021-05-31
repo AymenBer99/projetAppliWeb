@@ -13,6 +13,16 @@ public class Statistiques {
     private int nbrVaccins;
     private int nbrGuerison;
 
+    public Statistiques() {	}    
+    
+    
+    public Statistiques(String date, int NouveauCas,int nbrDeces,int nbrVaccins,int nbrGuerison) {
+    	this.Date = date;
+    	this.NouveauCas = NouveauCas;
+        this.nbrDeces = nbrDeces;
+        this.nbrVaccins = nbrVaccins;  	
+        this.nbrGuerison = nbrGuerison;  	
+    }    
     public void setNouveauCas(int cas) {
     this.NouveauCas = cas;
     }
@@ -49,6 +59,6 @@ public class Statistiques {
     }
     
     public String toString() {
-        return this.NouveauCas+";"+this.nbrDeces+";"+this.nbrGuerison+";"+this.nbrVaccins;
+        return this.Date+";"+this.NouveauCas+";"+this.nbrDeces+";"+this.nbrVaccins+";"+this.nbrGuerison;
     }
 }

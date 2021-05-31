@@ -105,38 +105,50 @@
 
     </div>
 
-    <hr class="padding-bottom">
 
+	<% String[] statistiques = (String[])request.getAttribute("statistiques"); %>
+    <% if (statistiques != null) { %>
+              <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+					    <script type="text/javascript">
+					      google.charts.load('current', {'packages':['corechart']});
+					      google.charts.setOnLoadCallback(drawChart);
+					      
+					      function drawChart() {
+					        var data = google.visualization.arrayToDataTable([
+						    ['Jour', 'Nouveaux Cas', 'Nombre Décès' , 'Nombre Vaccins', 'Nombre Guerison'],
+					        <% for (int i=0; i<statistiques.length-1; i++) { %>
+					        ['<%out.print((statistiques[i].split(";")[0]));%>' , <%out.print((statistiques[i].split(";")[1]));%> , <%out.print((statistiques[i].split(";")[2]));%> , 
+					        <%out.print((statistiques[i].split(";")[3]));%>,<%out.print((statistiques[i].split(";")[4]));%>],
+					        <%}%>
+					        ['<%out.print((statistiques[statistiques.length-1].split(";")[0]));%>' , <%out.print((statistiques[statistiques.length-1].split(";")[1]));%>
+					        , <%out.print((statistiques[statistiques.length-1].split(";")[2]));%> ,<%out.print((statistiques[statistiques.length-1].split(";")[3]));%>
+					        ,<%out.print((statistiques[statistiques.length-1].split(";")[4]));%>]
+					      ]);
+					        
+					        var options = {
+							          title: '',
+							        };
+							
+					        var chart = new google.visualization.LineChart(document.getElementById('chart'));
+							
+					        chart.draw(data, options);
+					        
+					      }
+					     </script>
+					<%}%>  
+
+
+    <hr class="padding-bottom">
     <div id="stats" class="container padding-bottom">
       <h2 class="center display-3 title">Statistiques</h2>
-      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-              <h3 class="center">Jour J</h3>
-          </div>
-          <div class="carousel-item">
-              <h3 class="center">Jour J-1</h3>
-          </div>
-          <div class="carousel-item">
-              <h1 class="center">Jour J-2</h1>
-          </div>
-        </div>
-        <a class="carousel-control-prev left-arrow align-items-left" href="#carouselExampleControls" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next right-arrow" href="#carouselExampleControls" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
+      <body> <div id="chart" class ="center" style="width: 900px; height: 500px"></div>     
+      </body>
+          
     </div>
-
       <hr class="padding-bottom">
-
   </div>
-
-
+ 		
+  
   <div class="footer padding-top padding-bottom center">
     <div class="container">
       <div class="row">

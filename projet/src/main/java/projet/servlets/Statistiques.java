@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -37,6 +38,8 @@ public class Statistiques extends HttpServlet {
     public static final String ATT_CONNECTED = "connected";
     public static final String VUE = "/appli/statistiques.jsp";
     public static final String ACCEUIL = "/index.jsp";
+    
+
     
 
 

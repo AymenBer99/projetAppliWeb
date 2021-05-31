@@ -63,9 +63,33 @@
         </form>      
         ${ajoutstat}
       <hr class="padding-bottom">
+       <% String[] statistiques = (String[])request.getAttribute("statistiques"); %>
+       <% if (statistiques != null) { %>
+       <% for (int i=0; i<statistiques.length; i++) { %>
+         <td><p class = "center"><font size="4" > <%out.println((statistiques[i].split(";"))[0]);%> :</font> <font size="6" ><%out.println((statistiques[i].split(";"))[1]);%></font></p></td>
+         <div style="width:400px;height:200px;border:2px solid #000;" class = "center"><%out.println((statistiques[i].split(";"))[2]);%></div>
+       <%}} %>
    </div>
   <div class="body text-white padding-bottom padding-top">     
-  ${stat}
+  <table  class = "center" width = "100%">
+      <tr>
+         <th width="20%" > <font size="5"> Date </font></th>
+         <th width="20%" > <font size="5"> Nombre De Cas </font></th>
+         <th width="20%"> <font size="5"> Nombre De Décès</font></th>
+         <th width="20%"> <font size="5"> Nombre De Vaccins</font></th>
+         <th width="20%"> <font size="5"> Nombre De Guerisons</font></th>
+      </tr>
+      </tr>
+       <% String stat = (String)request.getAttribute("stat"); %>
+       <% if (stat != null) { %>
+        <tr>
+            <td> <font size="4"> <%out.println(stat.split(";")[0]);%></font></td>
+            <td> <font size="4"> <%out.println(stat.split(";")[1]);%></font></td>
+            <td> <font size="4">  <%out.println(stat.split(";")[2]);%></font></td>
+            <td> <font size="4"> <%out.println(stat.split(";")[3]);%></font></td> 
+            <td> <font size="4"> <%out.println(stat.split(";")[4]);%></font></td>
+        </tr>
+       <%}%>
   </div>
 
 

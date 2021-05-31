@@ -31,6 +31,8 @@ public class AjouterStat extends HttpServlet {
     public static final String VUE = "/appli/AjouterStat.jsp";
     public static final String CONNEXION = "/appli/statistiques.jsp";
     public static final String ATT_CONNECTED = "connected";
+    public static final String ATT_AJOUTSTAT = "ajoutstat";
+
 
 
     
@@ -66,6 +68,9 @@ public class AjouterStat extends HttpServlet {
     	
 		if (session.getAttribute(ATT_SESSION_USER) != null) {
             request.setAttribute( ATT_CONNECTED, "<a class=\"nav-link\" href=\"/projet/Profile\">Profile</a>" );
+            if ( ((Utilisateur) session.getAttribute(ATT_SESSION_USER)).isAdmin()) {
+            	request.setAttribute( ATT_AJOUTSTAT, "<a class=\"nav-link center\" href=\"/projet/AjouterStat\">Ajouter statistiques</a>" );
+            }
         } else {
             request.setAttribute( ATT_CONNECTED, "<a class=\"nav-link\" href=\"/projet/Connexion\">Connexion/Inscription</a>" );	
         }        

@@ -30,6 +30,8 @@ public class AjouterMesureGouv extends HttpServlet {
     public static final String VUE = "/appli/AjoutMesureGouv.jsp";
     public static final String CONNEXION = "/appli/gouvern.jsp";
     public static final String ATT_CONNECTED = "connected";
+    public static final String ATT_AJOUTMESURE = "ajoutmesure";
+
 
 
     public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
@@ -62,6 +64,9 @@ public class AjouterMesureGouv extends HttpServlet {
     	
 		if (session.getAttribute(ATT_SESSION_USER) != null) {
             request.setAttribute( ATT_CONNECTED, "<a class=\"nav-link\" href=\"/projet/Profile\">Profile</a>" );
+            if ( ((Utilisateur) session.getAttribute(ATT_SESSION_USER)).isAdmin()) {
+            	request.setAttribute( ATT_AJOUTMESURE, "<a class=\"nav-link center\" href=\"/projet/AjouterMesureGouv\">Ajouter mesure</a>" );
+            }
         } else {
             request.setAttribute( ATT_CONNECTED, "<a class=\"nav-link\" href=\"/projet/Connexion\">Connexion/Inscription</a>" );	
         }        

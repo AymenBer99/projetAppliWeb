@@ -1,6 +1,7 @@
 package projet.servlets;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import javax.ejb.Singleton;
 import javax.persistence.EntityManager;
@@ -84,8 +85,12 @@ public class Facade {
 		return em.find(Statistiques.class, date);
 	}
 	
-	public void addStat(Statistiques stat) {
-		em.persist(stat);
+	public void addStat(projet.beans.Statistiques statistiques) {
+		em.persist(statistiques);
 		em.flush();
+	}
+
+	public Collection<Statistiques> getStatistiques() {
+        return em.createQuery("SELECT NEW projet.beans.Statistiques(r.Date,r.NouveauCas,r.nbrDeces,r.nbrVaccins,r.nbrGuerison) from projet.beans.Statistiques r", Statistiques.class).getResultList();
 	}
 }

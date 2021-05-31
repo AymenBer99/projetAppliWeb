@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -34,6 +35,7 @@ public class Acceuil extends HttpServlet {
     public static final String ATTRIBUT_MESURE1 = "mesure1";
     public static final String ATTRIBUT_MESURE2 = "mesure2";
     public static final String ATTRIBUT_MESURE3 = "mesure3";
+    public static final String ATTRIBUT_STAT = "statistiques";
     public static String date = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
 	public static boolean b = true;
 
@@ -70,61 +72,22 @@ public class Acceuil extends HttpServlet {
 		    request.setAttribute( ATTRIBUT_MESURE3, mesuresString3.substring(1, mesuresString3.length()-2).split(","));  
 		}  
 	    
-        /* Affichage de la page d'inscription */
-        this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
+        
         
        
-        
+	    Collection<projet.beans.Statistiques> statistiques = facade.getStatistiques();
+	    String statistiquesString = Arrays.toString(statistiques.toArray());
+	    if (!statistiquesString.equals("[]")) {
+		    request.setAttribute( ATTRIBUT_STAT, statistiquesString.substring(1, statistiquesString.length()-1).split(","));  
+		}  
+
+	    
+	    /* Affichage de la page d'inscription */
+        this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
+
        
 
         
-    }
-    
-    
-    public String dateJ_1(String date) {
-    	int[] tab = {5,7,8,10,12};
-    	int[] tab2 = {2,4,6,9,11};
-    	if (Integer.parseInt(date.split("-")[2]) != 1) {
-    		return date.split("-")[0]+"-"+date.split("-")[1]+"-"+Integer.toString(Integer.parseInt(date.split("-")[2])-1);
-    	} else if (Arrays.binarySearch(tab, Integer.parseInt(date.split("-")[1])) >= 0){
-    		return date.split("-")[0]+"-"+(Integer.parseInt(date.split("-")[1])-1)+"-30";
-    	} else if (Arrays.binarySearch(tab2, Integer.parseInt(date.split("-")[1])) >= 0){
-    		return date.split("-")[0]+"-"+(Integer.parseInt(date.split("-")[1])-1)+"-31";
-    	} else if (Integer.parseInt(date.split("-")[1]) == 1) {
-    		return (Integer.parseInt(date.split("-")[0])-1)+"-12-31";
-    	} else if (AnneeBissextile(Integer.parseInt(date.split("-")[0]))){
-    		return date.split("-")[0]+"-2-29";
-    	} else {
-    		return date.split("-")[0]+"-2-28";
-    	}
-    }
-    
-    public String dateJ_2(String date) {
-    	int[] tab = {5,7,8,10,12};
-    	int[] tab2 = {2,4,6,9,11};
-    	if (Integer.parseInt(date.split("-")[2]) > 2) {
-    		return date.split("-")[0]+"-"+date.split("-")[1]+"-"+(Integer.parseInt(date.split("-")[2])-2);
-    	} else if (Arrays.binarySearch(tab, Integer.parseInt(date.split("-")[1])) >= 0){
-    		return date.split("-")[0]+"-"+(Integer.parseInt(date.split("-")[1])-1)+"-29";
-    	} else if (Arrays.binarySearch(tab2, Integer.parseInt(date.split("-")[1])) >= 0){
-    		return date.split("-")[0]+"-"+(Integer.parseInt(date.split("-")[1])-1)+"-30";
-    	} else if (Integer.parseInt(date.split("-")[1]) == 1) {
-    		return (Integer.parseInt(date.split("-")[0])-1)+"-12-30";
-    	} else if (AnneeBissextile(Integer.parseInt(date.split("-")[0]))){
-    		return date.split("-")[0]+"-2-28";
-    	} else {
-    		return date.split("-")[0]+"-2-27";
-    	}
-    }
-    
-    public boolean AnneeBissextile(int annee){
-    	if(annee % 4 ==0 && annee % 100 != 0){
-    		   return true;
-    		}else if(annee % 400 == 0){
-    		   return true;
-    		}else {
-     		   return false;
-    		}
     }
 
 	/**
@@ -145,5 +108,50 @@ public class Acceuil extends HttpServlet {
 	        /* Affichage de la page d'inscription */
 	        this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
 	}
+	 public String dateJ_1(String date) {
+	    	int[] tab = {5,7,8,10,12};
+	    	int[] tab2 = {2,4,6,9,11};
+	    	if (Integer.parseInt(date.split("-")[2]) != 1) {
+	    		return date.split("-")[0]+"-"+date.split("-")[1]+"-"+Integer.toString(Integer.parseInt(date.split("-")[2])-1);
+	    	} else if (Arrays.binarySearch(tab, Integer.parseInt(date.split("-")[1])) >= 0){
+	    		return date.split("-")[0]+"-"+(Integer.parseInt(date.split("-")[1])-1)+"-30";
+	    	} else if (Arrays.binarySearch(tab2, Integer.parseInt(date.split("-")[1])) >= 0){
+	    		return date.split("-")[0]+"-"+(Integer.parseInt(date.split("-")[1])-1)+"-31";
+	    	} else if (Integer.parseInt(date.split("-")[1]) == 1) {
+	    		return (Integer.parseInt(date.split("-")[0])-1)+"-12-31";
+	    	} else if (AnneeBissextile(Integer.parseInt(date.split("-")[0]))){
+	    		return date.split("-")[0]+"-2-29";
+	    	} else {
+	    		return date.split("-")[0]+"-2-28";
+	    	}
+	    }
+	    
+	    public String dateJ_2(String date) {
+	    	int[] tab = {5,7,8,10,12};
+	    	int[] tab2 = {2,4,6,9,11};
+	    	if (Integer.parseInt(date.split("-")[2]) > 2) {
+	    		return date.split("-")[0]+"-"+date.split("-")[1]+"-"+(Integer.parseInt(date.split("-")[2])-2);
+	    	} else if (Arrays.binarySearch(tab, Integer.parseInt(date.split("-")[1])) >= 0){
+	    		return date.split("-")[0]+"-"+(Integer.parseInt(date.split("-")[1])-1)+"-29";
+	    	} else if (Arrays.binarySearch(tab2, Integer.parseInt(date.split("-")[1])) >= 0){
+	    		return date.split("-")[0]+"-"+(Integer.parseInt(date.split("-")[1])-1)+"-30";
+	    	} else if (Integer.parseInt(date.split("-")[1]) == 1) {
+	    		return (Integer.parseInt(date.split("-")[0])-1)+"-12-30";
+	    	} else if (AnneeBissextile(Integer.parseInt(date.split("-")[0]))){
+	    		return date.split("-")[0]+"-2-28";
+	    	} else {
+	    		return date.split("-")[0]+"-2-27";
+	    	}
+	    }
+	    
+	    public boolean AnneeBissextile(int annee){
+	    	if(annee % 4 ==0 && annee % 100 != 0){
+	    		   return true;
+	    		}else if(annee % 400 == 0){
+	    		   return true;
+	    		}else {
+	     		   return false;
+	    		}
+	    }
 
 }
